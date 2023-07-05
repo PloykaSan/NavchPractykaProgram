@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+//функція щоб знайти найбільший спільний дільник
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
+//функція зоб знайти найменше спільне кратне
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
+}
+
+int main() {
+//введення змінної
+    int n;
+//зчитування к-сті чисел
+    printf("Введіть кількість чисел: ");
+    scanf("%d", &n);
+
+//функція для перевірки умов
+    if (n < 2 || n > 20) {
+        printf("Некоректна кількість чисел.\n");
+        return 0;
+    }
+
+//введення чисел, умова, зчитування
+    int numbers[20];
+    printf("Введіть числа, розділені пробілом: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &numbers[i]);
+    }
+
+//розрахунок результату
+    int result = numbers[0];
+
+    for (int i = 1; i < n; i++) {
+        result = lcm(result, numbers[i]);
+    }
+
+//виведення результату
+    printf("Найменше спільне кратне: %d\n", result);
+
+    return 0;
+}
