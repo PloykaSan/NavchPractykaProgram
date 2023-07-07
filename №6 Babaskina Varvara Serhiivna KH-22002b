@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+
+//функція що обчислює довжину вектора за його координатами
+double vectorLength(int x1, int y1, int x2, int y2) {
+
+//довжина вектору по горизонтальній осі, по вертикальній    
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    
+//повертаємо обчислену довжину вектора
+    return sqrt(dx*dx + dy*dy);
+}
+
+int main() {
+    
+//назначення змінних, зчитування чисел 
+    int x1, y1, x2, y2;
+    printf("Введіть координати початку та кінця вектора (x1, y1, x2, y2): ");
+    scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+
+//виведення результату
+    double length = vectorLength(x1, y1, x2, y2);
+    printf("Довжина вектора: %.6f\n", length);
+
+    return 0;
+}
